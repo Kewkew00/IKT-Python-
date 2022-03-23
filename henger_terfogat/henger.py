@@ -45,9 +45,24 @@ def terfogat():
      m = int(magassagmezo.get())
      v = math.pi * r*r * m
      terfogatmezo.delete(0,END)
-     terfogatmezo.insert(0, '' + str(round(v, 2)))
+     terfogatmezo.insert(0, str(round(v, 2)) + " cm3")
 
-kiszamitgomb = Button(foablak, text = 'Kiszámít', command = terfogat)
+     v = math.pi * r*r * m * 7.8
+     vashengermezo.delete(0,END)
+     vashengermezo.insert(0, str(round(v, 2)) + " g")
+
+     v = math.pi * r*r * m * 0.6
+     fahengermezo.delete(0,END)
+     fahengermezo.insert(0, str(round(v, 2)) + " g")
+
+icon = PhotoImage(file = 'henger_kep.png')
+foablak.iconphoto(True,icon)
+
+foablak.title('Henger')
+
+
+
+kiszamitgomb = Button(foablak, text = 'Kiszámít', command = terfogat,)
 kiszamitgomb.grid(column = 1, row = 2, ipadx= 36, padx = 6, pady = 6)
 
 
