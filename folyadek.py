@@ -20,7 +20,7 @@ magassagmezo.grid(column = 1 , row = 1, padx = 6, pady = 6)
 #masodik mezo
 
 #harmadik mezo
-hanyliter = Label(foablak, text = 'Hány literes a hordó (l) :', fg = 'black')
+hanyliter = Label(foablak, text = 'Ennyi literes a hordó (l) :', fg = 'black')
 hanyliter.grid(column = 0, row = 2, padx = 6, pady = 6)
 hanylitermezo = Entry(foablak)
 hanylitermezo.grid(column = 1 , row = 2, padx = 6, pady = 6)
@@ -47,22 +47,18 @@ hanyszazalekuresmezo = Entry(foablak)
 hanyszazalekuresmezo.grid(column = 1, row = 6, padx = 6, pady = 6)
 #otodik mezo
 
-
-kiszamitgomb = Button(foablak, text = 'Kiszámít',command = kiszamitas)
-kiszamitgomb.grid(column = 1, row = 7, ipadx= 36, padx = 6, pady = 6)
-
-
-def kiszamitas():
+def kiszamit():
      r = int(sugarmezo.get())
      m = int(magassagmezo.get())
-     v = math.pi * r*r * m
-     sugarmezo.insert(0, str(round(v)) + " cm3")
+     v = math.pi * r*r * m // 1000
+     ennyiliteresmezo.delete(0,END)
+     ennyiliteresmezo.insert(0, str(round(v)) + " dm³")
+     hanylitermezo.delete(0,END)
+     hanylitermezo.insert(0, str(round(v)) + " l")
 
 
 
-
-
-
-
+kiszamitgomb = Button(foablak, text = 'Kiszámít', command = kiszamit)
+kiszamitgomb.grid(column = 1, row = 7, ipadx= 36, padx = 6, pady = 6)
 
 foablak.mainloop()
