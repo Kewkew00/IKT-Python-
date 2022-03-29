@@ -47,16 +47,32 @@ hanyszazalekuresmezo = Entry(foablak)
 hanyszazalekuresmezo.grid(column = 1, row = 6, padx = 6, pady = 6)
 #otodik mezo
 
-def kiszamit():
-     r = int(sugarmezo.get())
-     m = int(magassagmezo.get())
-     v = math.pi * r*r * m // 1000
-     ennyiliteresmezo.delete(0,END)
-     ennyiliteresmezo.insert(0, str(round(v)) + " dm³")
-     hanylitermezo.delete(0,END)
-     hanylitermezo.insert(0, str(round(v)) + " l")
 
+def terfogat():
+    
+    r = int(mezo1.get())
 
+    m = int(mezo2.get())
+
+    b = int(mezo3.get())
+
+    if r >0 and m>0 and b>0:
+        terfogat = round (math.pi * r * r * m /1000 ,2)
+        mezo10.delete(0, END)
+        mezo10.insert(0, str(terfogat)+' dm3')
+        szazalek= round(b*(100/terfogat), 2)
+        
+        if b<= terfogat and b>0 and terfogat>0 :
+            mezo10.delete(0, END)
+            mezo10.insert(0, str(terfogat)+' dm3')
+            mezo11.delete(0, END)
+            mezo11.insert(0,str() +'igen')
+            mezo12.delete(0, END)
+            mezo12.insert(0, str(szazalek)+' %')
+
+    else :
+        mezo10.delete(0, END)
+        mezo10.insert(0, str()+' nem lehet ')
 
 kiszamitgomb = Button(foablak, text = 'Kiszámít', command = kiszamit)
 kiszamitgomb.grid(column = 1, row = 7, ipadx= 36, padx = 6, pady = 6)
