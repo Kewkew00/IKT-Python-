@@ -47,34 +47,46 @@ hanyszazalekuresmezo = Entry(foablak)
 hanyszazalekuresmezo.grid(column = 1, row = 6, padx = 6, pady = 6)
 #otodik mezo
 
+#hatodik mezo
+ennyifermeg = Label(foablak, text = 'Ennyi bor fér még a hordóba :', fg = 'black')
+ennyifermeg.grid(column = 0, row = 7)
+ennyifermegmezo = Entry(foablak)
+ennyifermegmezo.grid(column = 1, row = 7, padx = 6, pady = 6)
+#hatodik mezo
+
+s = ''
 
 def terfogat():
+
+    if not s:
+        ennyiliteresmezo.delete(0, END)
+        ennyiliteresmezo.insert(0, str()+'a számításhoz adat kell ')
     
-    r = int(mezo1.get())
-
-    m = int(mezo2.get())
-
-    b = int(mezo3.get())
+    r = float(sugarmezo.get())
+    m = float(magassagmezo.get())
+    b = float(hanylitermezo.get())
 
     if r >0 and m>0 and b>0:
         terfogat = round (math.pi * r * r * m /1000 ,2)
-        mezo10.delete(0, END)
-        mezo10.insert(0, str(terfogat)+' dm3')
+        ennyiliteresmezo.delete(0, END)
+        ennyiliteresmezo.insert(0, str(terfogat)+' dm3')
         szazalek= round(b*(100/terfogat), 2)
         
-        if b<= terfogat and b>0 and terfogat>0 :
-            mezo10.delete(0, END)
-            mezo10.insert(0, str(terfogat)+' dm3')
-            mezo11.delete(0, END)
-            mezo11.insert(0,str() +'igen')
-            mezo12.delete(0, END)
-            mezo12.insert(0, str(szazalek)+' %')
+        if b <= terfogat and b >0 and terfogat > 0 :
+            ennyiliteresmezo.delete(0, END)
+            ennyiliteresmezo.insert(0, str(terfogat)+' dm3')
+            beleefermezo.delete(0, END)
+            beleefermezo.insert(0,str() +'igen')
+            hanyszazalekuresmezo.delete(0, END)
+            hanyszazalekuresmezo.insert(0, str(szazalek)+' %')
+            ennyifermegmezo.delete(0, END)
+            ennyifermegmezo.insert(0, str(terfogat - b)+' l')
 
     else :
-        mezo10.delete(0, END)
-        mezo10.insert(0, str()+' nem lehet ')
+        ennyiliteresmezo.delete(0, END)
+        ennyiliteresmezo.insert(0, str()+' nem lehet számolni')
 
-kiszamitgomb = Button(foablak, text = 'Kiszámít', command = kiszamit)
-kiszamitgomb.grid(column = 1, row = 7, ipadx= 36, padx = 6, pady = 6)
+kiszamitgomb = Button(foablak, text = 'Kiszámít', command = terfogat)
+kiszamitgomb.grid(column = 1, row = 8, ipadx= 36, padx = 6, pady = 6)
 
 foablak.mainloop()
