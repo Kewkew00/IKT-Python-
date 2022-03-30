@@ -54,7 +54,9 @@ ennyifermegmezo = Entry(foablak)
 ennyifermegmezo.grid(column = 1, row = 7, padx = 6, pady = 6)
 #hatodik mezo
 
+#bugfix valtozo
 s = ''
+#bugfix valtozo
 
 def terfogat():
 
@@ -67,10 +69,10 @@ def terfogat():
     b = float(hanylitermezo.get())
 
     if r >0 and m>0 and b>0:
-        terfogat = round (math.pi * r * r * m /1000 ,2)
+        terfogat = round (math.pi * r * r * m /1000)
         ennyiliteresmezo.delete(0, END)
         ennyiliteresmezo.insert(0, str(terfogat)+' dm3')
-        szazalek= round(b*(100/terfogat), 2)
+        szazalek= round(b*(100/terfogat))
         
         if b <= terfogat and b >0 and terfogat > 0 :
             ennyiliteresmezo.delete(0, END)
@@ -86,6 +88,7 @@ def terfogat():
         ennyiliteresmezo.delete(0, END)
         ennyiliteresmezo.insert(0, str()+' nem lehet számolni')
 
+#gomb
 kiszamitgomb = Button(foablak, text = 'Kiszámít', command = terfogat)
 kiszamitgomb.grid(column = 1, row = 8, ipadx= 36, padx = 6, pady = 6)
 
