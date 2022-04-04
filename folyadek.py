@@ -20,7 +20,7 @@ magassagmezo.grid(column = 1 , row = 1, padx = 6, pady = 6)
 #masodik mezo
 
 #harmadik mezo
-hanyliter = Label(foablak, text = 'Ennyi literes a hordó (l) :', fg = 'black')
+hanyliter = Label(foablak, text = 'Hány liter bor van? (l) :', fg = 'black')
 hanyliter.grid(column = 0, row = 2, padx = 6, pady = 6)
 hanylitermezo = Entry(foablak)
 hanylitermezo.grid(column = 1 , row = 2, padx = 6, pady = 6)
@@ -84,9 +84,17 @@ def terfogat():
             ennyifermegmezo.delete(0, END)
             ennyifermegmezo.insert(0, str(terfogat - b)+' l')
 
+        else:
+            beleefermezo.delete(0, END)
+            beleefermezo.insert(0, str()+' nem fér bele')
+            hanyszazalekuresmezo.delete(0, END)
+            ennyifermegmezo.delete(0, END)
+
     else :
         ennyiliteresmezo.delete(0, END)
         ennyiliteresmezo.insert(0, str()+' nem lehet számolni')
+        hanyszazalekuresmezo.delete(0, END)
+        ennyifermegmezo.delete(0, END)
 
 #gomb
 kiszamitgomb = Button(foablak, text = 'Kiszámít', command = terfogat)
