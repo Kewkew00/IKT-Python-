@@ -14,15 +14,28 @@ def nevjegy():
 #nevjegy ablak vége
 
 #felszin ablak
+
+
 def felszin():
 
+    s = ''
+
     def szamit():
+
+        if not s:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+ 'A számításhoz számadat kell')
+
         a = eval(mezo1.get())
         b = eval(mezo2.get())
         c = eval(mezo3.get())
         felszin = 2*(a*b+a*c+b*c)
-        mezo4.delete(0, END)
-        mezo4.insert(0, str(felszin))
+
+        if a <= 0 or b <= 0 or c <= 0:
+            mezo4.insert(0,str()+ 'Negatív számmal nem lehet számolni')
+        else:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str(felszin))
 
     ablak3 =Toplevel(foablak)
     ablak3.title('A téglatest felszíne')
@@ -50,15 +63,25 @@ def felszin():
 
 #terfogat ablak
 def terfogat():
-
+    s = ''
     def szamit():
+
+        if not s:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+ ' A számításhoz számadat kell')
+
         a = eval(mezo1.get())
         b = eval(mezo2.get())
         c = eval(mezo3.get())
         terfogat = a*b*c
-        mezo4.delete(0,END)
-        mezo4.insert(0,str(terfogat))
-    
+
+        if a <= 0 or b <= 0 or c <= 0:
+            mezo4.insert(0,str()+ 'Negatív számmal nem lehet számolni')
+        else:
+            mezo4.delete(0, END)
+            mezo4.insert(0, str(felszin))
+
+
     ablak3 = Toplevel(foablak)
     ablak3.title('A téglatest térfogata')
     ablak3.minsize(width = 300, height = 100)
