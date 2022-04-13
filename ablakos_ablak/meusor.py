@@ -75,14 +75,14 @@ def terfogat():
         a = eval(mezo1.get())
         b = eval(mezo2.get())
         c = eval(mezo3.get())
-        terfogat = a*b*c
+        terfogat = a*b*c 
 
         if a <= 0 or b <= 0 or c <= 0:
             mezo4.delete(0, END)
             mezo4.insert(0,str()+ 'Negatív számmal nem lehet számolni')
         else:
             mezo4.delete(0, END)
-            mezo4.insert(0, str(felszin))
+            mezo4.insert(0, str(terfogat))
 
 
     ablak3 = Toplevel(foablak)
@@ -120,21 +120,21 @@ def hterfogat():
 
         r = eval(mezo1.get())
         m = eval(mezo2.get())
-        terfogat = math.pi * r * r * m
+        terfogat = round(math.pi * r * r * m, 2)
 
         if r <= 0 or m <= 0:
             mezo4.delete(0, END)
             mezo4.insert(0,str()+ 'Negatív számmal nem lehet számolni')
         else:
             mezo4.delete(0, END)
-            mezo4.insert(0, str(felszin))
+            mezo4.insert(0, str(terfogat))
 
 
     ablak4 = Toplevel(foablak)
     ablak4.title('A henger térfogata')
     ablak4.minsize(width = 300, height = 100)
-    szoveg1 = Label(ablak4, text = 'r')
-    szoveg2 = Label(ablak4, text = 'm')
+    szoveg1 = Label(ablak4, text = 'sugár(cm)')
+    szoveg2 = Label(ablak4, text = 'magasság(cm)')
     szoveg4 = Label(ablak4, text = 'Eredmény: ')
     gomb1 = Button(ablak4,  text = 'Számítás', command = hszamit)
     mezo1 = Entry(ablak4)
@@ -163,8 +163,7 @@ def hfelszin():
 
         r = eval(mezo1.get())
         m = eval(mezo2.get())
-        felszin = 2*math.pi*r(r+m)
-
+        felszin = round(2*math.pi*r*(r+m),2)
         if r <= 0 or m <= 0:
             mezo4.delete(0, END)
             mezo4.insert(0,str()+ 'Negatív számmal nem lehet számolni')
@@ -175,8 +174,8 @@ def hfelszin():
     ablak5 =Toplevel(foablak)
     ablak5.title('A henger felszíne')
     ablak5.minsize(width = 300, height = 100)
-    szoveg1 = Label(ablak5, text = 'r:')
-    szoveg2 = Label(ablak5, text = 'm:')
+    szoveg1 = Label(ablak5, text = 'sugár(cm):')
+    szoveg2 = Label(ablak5, text = 'magasság(cm):')
     szoveg4 = Label(ablak5, text = 'Eredmény: ')
     gomb1 = Button(ablak5,  text = 'Számítás', command = hszamit)
     mezo1 = Entry(ablak5)
